@@ -33,7 +33,26 @@ Ext.define('Buildtime.view.Main', {
                     {
                         title: 'Catalogue',
                         iconCls: 'action',
+                        xtype: 'list',
 
+                        store: {
+                            fields: [
+                                'title', 'price'
+                            ],
+
+                            data: [
+                                {
+                                    "title": "Gipsvägg",
+                                    "price": 100
+                                },
+                                {
+                                    "title": "Klickgolv",
+                                    "price": 50
+                                }
+                            ]
+                        },
+
+                        itemTpl: '<div style="float: right">{price}</div> {title}'
 
                     }
                 ]
