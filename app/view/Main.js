@@ -19,18 +19,6 @@ Ext.define('Buildtime.view.Main', {
                 flex: 1,
                 items: [
                     {
-                        title: 'Current',
-                        iconCls: 'home',
-
-                        styleHtmlContent: true,
-                        scrollable: true,
-
-                        html: [
-                            "<p>Calculate the time it takes to build something.</p>",
-                            "<p>Added items from the catalogue appears here.</p>"
-                        ].join("")
-                    },
-                    {
                         title: 'Catalogue',
                         iconCls: 'action',
                         xtype: 'list',
@@ -52,8 +40,24 @@ Ext.define('Buildtime.view.Main', {
                             ]
                         },
 
-                        itemTpl: '<div style="float: right">{price}</div> {title}'
+                        itemTpl: '<div style="float: right">{price}</div> {title}',
 
+                        listeners: {
+                            select: function(view, record) {
+                                Ext.Msg.alert(record.get('title'), "Price: " + record.get('price'));
+                            }
+                        }
+                    },{
+                        title: 'Current',
+                        iconCls: 'home',
+
+                        styleHtmlContent: true,
+                        scrollable: true,
+
+                        html: [
+                            "<p>Calculate the time it takes to build something.</p>",
+                            "<p>Added items from the catalogue appears here.</p>"
+                        ].join("")
                     }
                 ]
             }
